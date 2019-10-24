@@ -1,0 +1,15 @@
+<h2 class="title">登録</h2>
+
+<div class="content_area">
+  <p class="sub_title">物件登録</p>
+
+  <%= render "form" %>
+
+  <div class="button">
+    <%= form_for @property do |form| %>
+      <%= form.submit "登録する" %>
+    <% end %>
+  </div>
+  <p class="to_other_page"><%= link_to "戻る", properties_path %></p>
+
+</div>

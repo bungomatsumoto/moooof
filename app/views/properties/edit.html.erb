@@ -1,0 +1,16 @@
+<h2 class="title">編集</h2>
+
+<div class="content_area">
+  <p class="sub_title">物件編集</p>
+
+  <%= render "form" %>
+
+  <div class="button">
+    <%= form_for @property do |form| %>
+      <%= form.submit "更新する" %>
+    <% end %>
+  </div>
+  <span class="to_other_page"><%= link_to "詳細", property_path %></span>
+  |<span class="to_other_page"><%= link_to "戻る", property_path %></span>
+
+</div>
