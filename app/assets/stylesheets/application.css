@@ -41,7 +41,12 @@ a:link, a:visited {
 }
 
 .table_container th, .table_container td {
-  padding: 4px;
+  padding: 3px 6px;
+  text-align: left;
+}
+
+.table_container th {
+  text-align: center;
 }
 
 .to_other_page {

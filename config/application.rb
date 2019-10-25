@@ -6,7 +6,7 @@ Bundler.require(*Rails.groups)
 
 module DevExam
   class Application < Rails::Application
-
+    config.action_controller.action_on_unpermitted_parameters = :raise
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
 

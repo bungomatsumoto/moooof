@@ -4,6 +4,7 @@ class CreateStations < ActiveRecord::Migration[5.0]
       t.string :route
       t.string :station_name
       t.integer :distance
+      t.integer :property_id
 
       t.timestamps
     end

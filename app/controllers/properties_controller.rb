@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :get_it_property, only: [:show, :edit, :update, :destroy]
+  before_action :get_it_property, only: [:show, :update, :destroy]
 
   def index
     @properties = Property.all
@@ -7,7 +7,7 @@ class PropertiesController < ApplicationController
 
   def new
     @property = Property.new
-    @property.stations.build
+    2.times {@property.stations.build}
   end
 
   def create
@@ -23,6 +23,7 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    @property = Property.find(params[:id])
   end
 
   def update
@@ -41,7 +42,7 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:name, :rent, :address, :age, :notes, stations_attributes:[:route, :station_name, :distance])
+    params.require(:property).permit(:name, :rent, :address, :age, :notes, stations_attributes: [:route, :station_name, :distance, :id])
   end
 
   def get_it_property
