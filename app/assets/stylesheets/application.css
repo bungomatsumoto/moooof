@@ -1,15 +1,54 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  color: #333;
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", "sans-serif";
+}
+
+a:hover {
+  text-decoration: underline;
+  opacity: 0.5;
+}
+a:link, a:visited {
+  color: #333;
+}
+
+.content_area {
+  padding-left: 30px;
+}
+
+.content_header {
+  text-align: center;
+}
+
+.sub_title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.station_title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.item_area {
+  padding-left: 30px;
+}
+.item_area > p {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.item {
+  margin-top: 8px;
+}
+
+.table_container th, .table_container td {
+  padding: 3px;
+}
+
+.to_other_page {
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+.button {
+  margin-top: 15px;
+}
