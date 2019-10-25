@@ -1,2 +1,36 @@
-<h1>Properties#index</h1>
-<p>Find me in app/views/properties/index.html.erb</p>
+<h2 class="title">一覧</h2>
+
+<hr width="100%" size="1" align="center" noshade="">
+
+<div class="content_area">
+  <p class="sub_title">物件一覧</p>
+
+  <p><%= notice %></p>
+
+  <div class="table_wrapper">
+    <table class="table_container">
+      <tr>
+        <th class="content_header">物件名</th>
+        <th class="content_header">賃料</th>
+        <th class="content_header">住所</th>
+        <th class="content_header">築年数</th>
+        <th class="content_header">備考</th>
+      </tr>
+
+    <% @properties.each do |property| %>
+      <tr>
+        <td class="post_content"><%= property.name %></td>
+        <td class="post_content"><%= converting_to_jpy(property.rent) %>円</td>
+        <td class="post_content"><%= property.address %></td>
+        <td class="post_content"><%= property.age %>年</td>
+        <td class="post_content"><%= property.notes %></td>
+        <td class="option_order"><%= link_to "詳細", property_path(property.id) %></td>
+        <td class="option_order"><%= link_to "編集", edit_property_path(property.id) %></td>
+        <td class="option_order"><%= link_to "削除", property_path(property.id), method: :delete, data: { confirm: "本当に削除しますか？"} %></td>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+  <p class="to_other_page"><%= link_to '物件を登録する', new_property_path, class:'to_other_page_txt' %></p>
+
+</div>
