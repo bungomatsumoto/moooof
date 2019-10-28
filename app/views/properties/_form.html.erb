@@ -1,6 +1,15 @@
 
 <%= form_for @property do |f| %>
 
+  <% if @property.errors.any? %>
+    <div id="error_explanation">
+      <p><%= @property.errors.count %>件のエラーがあります。</p>
+      <% @property.errors.full_messages.each do |msg| %>
+        <p><%= msg %></p>
+      <% end %>
+    </div>
+  <% end %>
+
   <div class="item">
     <%= f.label :name, "物件名" %><br>
     <%= f.text_field :name %>
@@ -11,7 +20,7 @@
     <%= f.text_field :rent %>円
   </div>
 
-  <div class=item">
+  <div class="item">
     <%= f.label :address, "住所" %><br>
     <%= f.text_field :address %>
   </div>
@@ -27,9 +36,12 @@
   </div>
 
   <hr width="100%" size="1" align="center" noshade="">
+
   <% n = 0 %>
 
-  <%= f.fields_for :stations do |s| %>
+  <%= f.nested_fields_for :stations, wrapper_tag: :section do |s| %>
+
+      <section class="">
 
       <p class="station_title">最寄り駅<%= n += 1 %></p>
       <div class="item">
@@ -42,12 +54,16 @@
         <%= s.text_field :station_name %>
       </div>
 
-      <div class=item">
+      <div class="item">
         <%= s.label :distance, "徒歩分数" %><br>
         <%= s.text_field :distance %>分
       </div>
 
+      </section>
+
   <% end %>
+  <%= f.add_nested_fields_link :stations, '駅情報を追加', class: 'btn btn-primary', role: 'button' %>
+
 
     <div class="button">
       <% if action_name == 'new' %>

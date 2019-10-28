@@ -1,5 +1,5 @@
 class PropertiesController < ApplicationController
-  before_action :get_it_property, only: [:show, :update, :destroy]
+  before_action :get_id_property, only: [:show, :update, :destroy]
 
   def index
     @properties = Property.all
@@ -42,10 +42,10 @@ class PropertiesController < ApplicationController
   private
 
   def property_params
-    params.require(:property).permit(:name, :rent, :address, :age, :notes, stations_attributes: [:route, :station_name, :distance, :id])
+    params.require(:property).permit(:name, :rent, :address, :age, :notes, stations_attributes: [:route, :station_name, :distance, :id, :_destroy])
   end
 
-  def get_it_property
+  def get_id_property
     @property = Property.find(params[:id])
   end
 
